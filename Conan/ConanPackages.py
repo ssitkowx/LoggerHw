@@ -4,7 +4,6 @@ import os, re
 class ConanPackages:
     def __createFolderDownload (self, v_downloadsPath):
         print ('createFolderDownload')
-
         if not os.path.isdir (v_downloadsPath):
             os.mkdir (v_downloadsPath)
         os.chdir (v_downloadsPath)
@@ -25,35 +24,33 @@ class ConanPackages:
         
     def __parse (self, v_package):
         print ('parse')
-
         packageComponent = (re.split('[/@]', v_package, 3))
         return {'name' : packageComponent [0], 'version' : packageComponent [1], 'user' : packageComponent [2], 'channel' : packageComponent [3]}
 
     def GetPaths (self, v_packagesPath, v_packages):
         print ('GetPaths')
-
-        paths    = {}
-        libNames = []
+        paths        = {}
+        packageNames = []
         for package in v_packages:
-            packageComponent = ConanPackages.__parse (self, package)
-            path             = v_packagesPath + '/' + packageComponent ['name'] + '/' + packageComponent ['version'] + '/' + packageComponent ['user'] + '/' + packageComponent ['channel'] + '/package'
-            hashFolder       = os.listdir (path)
-            includePath      = path + '/' + hashFolder [0] + '/include'
-            libPath          = path + '/' + hashFolder [0] + '/lib'
-            libName          = packageComponent ['name'] + 'Lib.lib'
+            packageComponent   = ConanPackages.__parse (self, package)
+            path               = v_packagesPath + '/' + packageComponent ['name'] + '/' + packageComponent ['version'] + '/' + packageComponent ['user'] + '/' + packageComponent ['channel'] + '/package'
+            hashFolder         = os.listdir (path)
+            packageIncludePath = path + '/' + hashFolder [0] + '/include'
+            packagePath        = path + '/' + hashFolder [0] + '/lib'
+            packageName        = packageComponent ['name'] + 'Lib.lib'
              
-            if not os.path.isdir (includePath):
+            if not os.path.isdir (packageIncludePath):
                 raise Exception ('%s. Is not package include path', packageIncludePath)
 
-            if not os.path.isdir (libPath):
+            if not os.path.isdir (packagePath):
                 raise Exception ('%s. Is not package include lib path', packagePath)
 
-            paths [packageComponent ['name'] + 'IncludePath'] = includePath
-            paths [packageComponent ['name'] + 'LibPath']     = libPath
-            paths [packageComponent ['name'] + 'LibName']     = libName
-            libNames.append (packageComponent ['name'])
+            paths [packageComponent ['name'] + 'PackageIncludePath'] = packageIncludePath
+            paths [packageComponent ['name'] + 'PackagePath']        = packagePath
+            paths [packageComponent ['name'] + 'PackageName']        = packageName
+            packageNames.append (packageComponent ['name'])
 
-        tools.replace_in_file (os.getcwd ().replace ('\Conan','') + "\\CMakeLists.txt", "PackagesTempNames", str (libNames).strip ('[]').replace (',','').replace ('\'', ''), False)    
+        tools.replace_in_file (os.getcwd ().replace ('\Conan','') + "\\CMakeLists.txt", "PackagesTempNames", str (packageNames).strip ('[]').replace (',','').replace ('\'', ''), False)    
         return paths
 
     def Install (self, v_downloadsPath, v_repoUrl, v_packages):
