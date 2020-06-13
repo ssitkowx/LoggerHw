@@ -1,5 +1,5 @@
+import os, re, sys
 from conans import tools
-import os, re
 
 class ConanPackages:
     def __createFolderDownload (self, v_downloadsPath):
@@ -36,17 +36,17 @@ class ConanPackages:
             path               = v_packagesPath + '/' + packageComponent ['name'] + '/' + packageComponent ['version'] + '/' + packageComponent ['user'] + '/' + packageComponent ['channel'] + '/package'
             hashFolder         = os.listdir (path)
             packageIncludePath = path + '/' + hashFolder [0] + '/include'
-            packagePath        = path + '/' + hashFolder [0] + '/lib'
+            packageLibPath     = path + '/' + hashFolder [0] + '/lib'
             packageName        = packageComponent ['name'] + 'Lib.lib'
              
             if not os.path.isdir (packageIncludePath):
                 raise Exception ('%s. Is not package include path', packageIncludePath)
 
-            if not os.path.isdir (packagePath):
-                raise Exception ('%s. Is not package include lib path', packagePath)
+            if not os.path.isdir (packageLibPath):
+                raise Exception ('%s. Is not package include lib path', packageLibPath)
 
             paths [packageComponent ['name'] + 'PackageIncludePath'] = packageIncludePath
-            paths [packageComponent ['name'] + 'PackagePath']        = packagePath
+            paths [packageComponent ['name'] + 'PackageLibPath']     = packageLibPath
             paths [packageComponent ['name'] + 'PackageName']        = packageName
             packageNames.append (packageComponent ['name'])
 
