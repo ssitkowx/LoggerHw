@@ -16,6 +16,7 @@ class LoggerFixture : public ::testing::Test
         static constexpr char * MODULE = (char *)"LoggerFixture";
 
     protected:
+	    void TestBody () override { }
         void SetUp    () override { }
         void TearDown () override { }
 };
