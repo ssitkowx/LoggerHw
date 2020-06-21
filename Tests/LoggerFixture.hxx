@@ -18,8 +18,8 @@ class LoggerFixture : public ::testing::Test
     protected:
         void SetUp    () override 
         {
-            static LoggerMock loggerHw;
-            SET_LOGGER_INST (&loggerHw);
+            static LoggerMock loggerMock;
+            SET_LOGGER_INST (&loggerMock);
         }
         void TearDown () override { }
 };
