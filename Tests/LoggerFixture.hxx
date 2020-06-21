@@ -1,9 +1,9 @@
+#pragma once
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// INCLUDES /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "LoggerMock.h"
 #include "gtest/gtest.h"
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -16,11 +16,7 @@ class LoggerFixture : public ::testing::Test
         static constexpr char * MODULE = (char *)"LoggerFixture";
 
     protected:
-        void SetUp    () override 
-        {
-            static LoggerMock loggerMock;
-            SET_LOGGER_INST (&loggerMock);
-        }
+        void SetUp    () override { }
         void TearDown () override { }
 };
 
