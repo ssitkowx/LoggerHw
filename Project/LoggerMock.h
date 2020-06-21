@@ -14,12 +14,12 @@
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#define LOG(MODULE,MSG, ...)  Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eLogNone   , MODULE, MSG, ##__VA_ARGS__);
-#define LOGE(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eLogError  , MODULE, MSG, ##__VA_ARGS__);
-#define LOGW(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eLogWarning, MODULE, MSG, ##__VA_ARGS__);
-#define LOGI(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eLogInfo   , MODULE, MSG, ##__VA_ARGS__);
-#define LOGD(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eLogDebug  , MODULE, MSG, ##__VA_ARGS__);
-#define LOGV(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eLogVerbose, MODULE, MSG, ##__VA_ARGS__);
+#define LOG(MODULE,MSG, ...)  Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eNone   , MODULE, MSG, ##__VA_ARGS__);
+#define LOGE(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eError  , MODULE, MSG, ##__VA_ARGS__);
+#define LOGW(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eWarning, MODULE, MSG, ##__VA_ARGS__);
+#define LOGI(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eInfo   , MODULE, MSG, ##__VA_ARGS__);
+#define LOGD(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eDebug  , MODULE, MSG, ##__VA_ARGS__);
+#define LOGV(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eVerbose, MODULE, MSG, ##__VA_ARGS__);
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
@@ -41,27 +41,27 @@ class LoggerMock : public Logger
         {
             switch (v_eLogLevel)
             {
-                case ELogLevel::eLogNone:
+                case ELogLevel::eNone:
                 {
                     return ColorWhite;
                 }
-                case ELogLevel::eLogError:
+                case ELogLevel::eError:
                 {
                     return ColorRed;
                 }
-                case ELogLevel::eLogWarning:
+                case ELogLevel::eWarning:
                 {
                     return ColorPurple;
                 }
-                case ELogLevel::eLogInfo:
+                case ELogLevel::eInfo:
                 {
                     return ColorBlue;
                 }
-                case ELogLevel::eLogDebug:
+                case ELogLevel::eDebug:
                 {
                     return ColorYellow;
                 }
-                case ELogLevel::eLogVerbose:
+                case ELogLevel::eVerbose:
                 {
                     return ColorGreen;
                 }

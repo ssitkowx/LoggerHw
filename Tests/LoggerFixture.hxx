@@ -2,6 +2,7 @@
 //////////////////////////////// INCLUDES /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+#include "LoggerMock.h"
 #include "gtest/gtest.h"
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -14,7 +15,11 @@ class LoggerFixture : public ::testing::Test
         static constexpr char * MODULE = (char *)"LoggerFixture";
 
     protected:
-        void SetUp    () override { }
+        void SetUp    () override 
+        {
+            static LoggerMock loggerHw;
+            SET_LOGGER_INST (&loggerHw);
+        }
         void TearDown () override { }
 };
 
