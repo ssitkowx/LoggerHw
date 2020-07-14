@@ -41,34 +41,13 @@ class LoggerMock : public Logger
         {
             switch (v_eLogLevel)
             {
-                case ELogLevel::eNone:
-                {
-                    return ColorWhite;
-                }
-                case ELogLevel::eError:
-                {
-                    return ColorRed;
-                }
-                case ELogLevel::eWarning:
-                {
-                    return ColorPurple;
-                }
-                case ELogLevel::eInfo:
-                {
-                    return ColorBlue;
-                }
-                case ELogLevel::eDebug:
-                {
-                    return ColorYellow;
-                }
-                case ELogLevel::eVerbose:
-                {
-                    return ColorGreen;
-                }
-                default:
-                {
-                    break;
-                }
+                case ELogLevel::eNone:    { return ColorWhite;  }
+                case ELogLevel::eError:   { return ColorRed;    }
+                case ELogLevel::eWarning: { return ColorPurple; }
+                case ELogLevel::eInfo:    { return ColorBlue;   }
+                case ELogLevel::eDebug:   { return ColorYellow; }
+                case ELogLevel::eVerbose: { return ColorGreen;  }
+                default:                  { break;              }
             };
 
             return ColorWhite;
