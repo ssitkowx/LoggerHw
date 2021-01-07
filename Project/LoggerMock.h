@@ -37,7 +37,7 @@ class LoggerMock : public Logger
         static constexpr char ColorCyan   [] = "\033[0;36m";
         static constexpr char ColorWhite  [] = "\033[0;37m";
 
-        std::string getFontColor (ELogLevel v_eLogLevel)
+        constexpr std::string_view getFontColor (const ELogLevel v_eLogLevel)
         {
             switch (v_eLogLevel)
             {
@@ -55,12 +55,12 @@ class LoggerMock : public Logger
     public:
 
         template<typename... ARGS>
-        void Log (const ELogLevel v_eLogLevel, const std::string && v_module, const std::string && v_msg, ARGS &&... v_args)
+        void Log (const ELogLevel v_eLogLevel, std::string_view v_module, std::string_view v_msg, ARGS &&... v_args)
         {
-            std::cout << ColorBlue << v_module.c_str ()
+            std::cout << ColorBlue << v_module.data ()
                       << getFontColor (v_eLogLevel)
                       << " "
-                      << v_msg.c_str ()
+                      << v_msg.data ()
                       << " ";
           ((std::cout << std::forward <ARGS> (v_args)), ...);
             std::cout << ColorWhite << std::endl;
