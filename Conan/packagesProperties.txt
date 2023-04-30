@@ -1,6 +1,0 @@
-LoggerPackageIncludePath=/home/sylwester/.conan/data/Logger/1.1/ssitkowx/stable/package/cda387b8cdf89552c0c54606118cd73eb983947f/include
-LoggerPackageLibPath=/home/sylwester/.conan/data/Logger/1.1/ssitkowx/stable/package/cda387b8cdf89552c0c54606118cd73eb983947f/lib
-LoggerPackageName=libLoggerLib.a
-UtilsPackageIncludePath=/home/sylwester/.conan/data/Utils/1.1/ssitkowx/stable/package/cda387b8cdf89552c0c54606118cd73eb983947f/include
-UtilsPackageLibPath=/home/sylwester/.conan/data/Utils/1.1/ssitkowx/stable/package/cda387b8cdf89552c0c54606118cd73eb983947f/lib
-UtilsPackageName=libUtilsLib.a
