@@ -14,12 +14,12 @@
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#define LOG(MODULE,MSG, ...)  Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eNone   , MODULE, MSG, ##__VA_ARGS__);
-#define LOGE(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eError  , MODULE, MSG, ##__VA_ARGS__);
-#define LOGW(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eWarning, MODULE, MSG, ##__VA_ARGS__);
-#define LOGI(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eInfo   , MODULE, MSG, ##__VA_ARGS__);
-#define LOGD(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eDebug  , MODULE, MSG, ##__VA_ARGS__);
-#define LOGV(MODULE,MSG, ...) Logger::GetInstance ()->Log <LoggerMock> (Logger::ELogLevel::eVerbose, MODULE, MSG, ##__VA_ARGS__);
+#define LOG(MODULE,MSG, ...)  Logger::GetInst ()->Log <LoggerMock> (Logger::ELogLevel::eNone   , MODULE, MSG, ##__VA_ARGS__);
+#define LOGE(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerMock> (Logger::ELogLevel::eError  , MODULE, MSG, ##__VA_ARGS__);
+#define LOGW(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerMock> (Logger::ELogLevel::eWarning, MODULE, MSG, ##__VA_ARGS__);
+#define LOGI(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerMock> (Logger::ELogLevel::eInfo   , MODULE, MSG, ##__VA_ARGS__);
+#define LOGD(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerMock> (Logger::ELogLevel::eDebug  , MODULE, MSG, ##__VA_ARGS__);
+#define LOGV(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerMock> (Logger::ELogLevel::eVerbose, MODULE, MSG, ##__VA_ARGS__);
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////

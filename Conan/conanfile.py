@@ -22,7 +22,7 @@ class Conan(ConanFile):
     packagesPath    = "/home/sylwester/.conan/data"
     downloadsPath   = "/home/sylwester/.conan/download"
     packages        = ["Logger/1.1@ssitkowx/stable",
-                       "Utils/1.1@ssitkowx/stable"]
+                              "Utils/1.1@ssitkowx/stable"]
 
     def source (self):   
         conanPackages.install (self, self.downloadsPath, self.repoUrl, self.packages)
