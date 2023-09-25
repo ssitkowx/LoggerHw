@@ -1,4 +1,4 @@
-# LoggerMock
+# LoggerHw
 
 # I. Description:
 Logger used in tests.

@@ -83,6 +83,15 @@ GET_PACKAGES_PROPERTY (PackageName        PackageLibsNames)
 SET          (BuildPath ${CurrentPath}/Build)
 REMOVE_FILES ("${BuildPath}")
 
+INCLUDE (FetchContent)
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+)
+
+SET                        (gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable (googletest)
+
 SOURCE_GROUP               (TREE                              ${TestIncludePath} PREFIX "" FILES ${TestFilesAndFolders})
 LINK_DIRECTORIES           (${TestsName}                      ${BuildPath}/lib ${PackageLibsPaths})
 ADD_EXECUTABLE             (${TestsName}                      ${TestFilesAndFolders})
