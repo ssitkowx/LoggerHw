@@ -1,10 +1,10 @@
-CMAKE_MINIMUM_REQUIRED (VERSION 2.16)
-PROJECT                (loggerhw)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.16)
+PROJECT                (template)
 
-SET (ProjectName            Project)
-SET (TestsName              Tests)
-SET (LibraryName            ${CMAKE_PROJECT_NAME})
-SET (CurrentPath            ${CMAKE_CURRENT_SOURCE_DIR})
+SET (ProjectName       Project)
+SET (TestsName         Tests)
+SET (LibraryName       ${CMAKE_PROJECT_NAME})
+SET (CurrentPath       ${CMAKE_CURRENT_SOURCE_DIR})
 SET (PackageNames logger utils)
 SET (PackageIncludePath /home/sylwester/.conan2/download/packages)
 

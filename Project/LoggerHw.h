@@ -14,12 +14,12 @@
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#define LOG(MODULE,MSG, ...)  Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::eNone   , MODULE, MSG, ##__VA_ARGS__);
-#define LOGE(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::eError  , MODULE, MSG, ##__VA_ARGS__);
-#define LOGW(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::eWarning, MODULE, MSG, ##__VA_ARGS__);
-#define LOGI(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::eInfo   , MODULE, MSG, ##__VA_ARGS__);
-#define LOGD(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::eDebug  , MODULE, MSG, ##__VA_ARGS__);
-#define LOGV(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::eVerbose, MODULE, MSG, ##__VA_ARGS__);
+#define LOG(MODULE,MSG, ...)  Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::None   , MODULE, MSG, ##__VA_ARGS__);
+#define LOGE(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Error  , MODULE, MSG, ##__VA_ARGS__);
+#define LOGW(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Warning, MODULE, MSG, ##__VA_ARGS__);
+#define LOGI(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Info   , MODULE, MSG, ##__VA_ARGS__);
+#define LOGD(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Debug  , MODULE, MSG, ##__VA_ARGS__);
+#define LOGV(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Verbose, MODULE, MSG, ##__VA_ARGS__);
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
@@ -41,12 +41,12 @@ class LoggerHw : public Logger
         {
             switch (v_eLogLevel)
             {
-                case ELogLevel::eNone:    { return ColorWhite;  }
-                case ELogLevel::eError:   { return ColorRed;    }
-                case ELogLevel::eWarning: { return ColorPurple; }
-                case ELogLevel::eInfo:    { return ColorBlue;   }
-                case ELogLevel::eDebug:   { return ColorYellow; }
-                case ELogLevel::eVerbose: { return ColorGreen;  }
+                case ELogLevel::None:    { return ColorWhite;  }
+                case ELogLevel::Error:   { return ColorRed;    }
+                case ELogLevel::Warning: { return ColorPurple; }
+                case ELogLevel::Info:    { return ColorBlue;   }
+                case ELogLevel::Debug:   { return ColorYellow; }
+                case ELogLevel::Verbose: { return ColorGreen;  }
                 default:                  { break;              }
             };
 
@@ -55,14 +55,14 @@ class LoggerHw : public Logger
     public:
 
         template<typename... ARGS>
-        void Log (const ELogLevel v_eLogLevel, std::string_view v_module, std::string_view v_msg, ARGS &&... v_args)
+        void Log (const ELogLevel vLogLevel, std::string_view vModule, std::string_view vMsg, ARGS &&... vArgs)
         {
-            std::cout << ColorBlue << v_module.data ()
-                      << getFontColor (v_eLogLevel)
+            std::cout << ColorBlue << vModule.data ()
+                      << getFontColor (vLogLevel)
                       << " "
-                      << v_msg.data ()
+                      << vMsg.data ()
                       << " ";
-          ((std::cout << std::forward <ARGS> (v_args)), ...);
+          ((std::cout << std::forward <ARGS> (vArgs)), ...);
             std::cout << ColorWhite << std::endl;
         }
 };

@@ -7,7 +7,7 @@ from conan.tools.cmake import CMake, cmake_layout
 
 class Conan(ConanFile):
     name            = "loggerhw"
-    version         = "1.2"
+    version         = "x.x"
     user            = "ssitkowx"
     channel         = "stable"
     license         = "freeware"
@@ -32,7 +32,7 @@ class Conan(ConanFile):
 
     def source (self):
         cmake_file = load (self, "CMakeLists.txt")
-        conanPackages.install (self, self.repoPath, self.repoUrl, self.packages)
+        conanPackages.install (self, self.downloadPath, self.repoPath, self.repoUrl, self.packages)
 
     def build (self):
         if self.settings.os == 'Linux' and self.settings.compiler == 'gcc':
