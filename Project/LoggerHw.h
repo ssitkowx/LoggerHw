@@ -55,12 +55,12 @@ class LoggerHw : public Logger
     public:
 
         template<typename... ARGS>
-        void Log (const ELogLevel vLogLevel, std::string_view vModule, std::string_view vMsg, ARGS &&... vArgs)
+        void Log (const ELogLevel vLogLevel, const char * const vModule, const char * const vMsg, ARGS &&... vArgs)
         {
-            std::cout << ColorBlue << vModule.data ()
+            std::cout << ColorBlue << vModule
                       << getFontColor (vLogLevel)
                       << " "
-                      << vMsg.data ()
+                      << vMsg
                       << " ";
           ((std::cout << std::forward <ARGS> (vArgs)), ...);
             std::cout << ColorWhite << std::endl;
