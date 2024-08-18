@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED (VERSION 3.16)
-PROJECT                (template)
+PROJECT                (loggerhw)
 
 SET (ProjectName       Project)
 SET (TestsName         Tests)
