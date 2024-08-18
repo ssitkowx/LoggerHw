@@ -55,7 +55,7 @@ class LoggerHw : public Logger
     public:
 
         template<typename... ARGS>
-        void Log (const ELogLevel vLogLevel, const char * const vModule, const char * const vMsg, ARGS &&... vArgs)
+        void Log (const ELogLevel vLogLevel, std::string vModule, std::string vMsg, ARGS &&... vArgs)
         {
             std::cout << ColorBlue << vModule
                       << getFontColor (vLogLevel)
