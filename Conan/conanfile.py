@@ -7,7 +7,7 @@ from conan.tools.cmake import CMake, cmake_layout
 
 class Conan(ConanFile):
     name            = "loggerhw"
-    version         = "x.x"
+    version         = "1.2"
     user            = "ssitkowx"
     channel         = "stable"
     license         = "freeware"
