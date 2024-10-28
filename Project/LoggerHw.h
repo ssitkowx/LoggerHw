@@ -4,6 +4,9 @@
 //////////////////////////////// INCLUDES /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <mutex>
+#include <chrono>
+#include <iomanip>
 #include <string.h>
 #include <stdint.h>
 #include <stddef.h>
@@ -28,42 +31,58 @@
 class LoggerHw : public Logger
 {
     private:
-        static constexpr char ColorBlack  [] = "\033[0;30m";
-        static constexpr char ColorRed    [] = "\033[0;31m";
-        static constexpr char ColorGreen  [] = "\033[0;32m";
-        static constexpr char ColorYellow [] = "\033[0;33m";
-        static constexpr char ColorBlue   [] = "\033[0;34m";
-        static constexpr char ColorPurple [] = "\033[0;35m";
-        static constexpr char ColorCyan   [] = "\033[0;36m";
-        static constexpr char ColorWhite  [] = "\033[0;37m";
+        struct Color
+        {
+            static constexpr char black  [] = "\033[0;30m";
+            static constexpr char red    [] = "\033[0;31m";
+            static constexpr char green  [] = "\033[0;32m";
+            static constexpr char yellow [] = "\033[0;33m";
+            static constexpr char blue   [] = "\033[0;34m";
+            static constexpr char purple [] = "\033[0;35m";
+            static constexpr char cyan   [] = "\033[0;36m";
+            static constexpr char white  [] = "\033[0;37m";
+        };
+        static std::mutex mutex;
+        Color             color;
 
         constexpr std::string_view getFontColor (const ELogLevel v_eLogLevel)
         {
             switch (v_eLogLevel)
             {
-                case ELogLevel::None:    { return ColorWhite;  }
-                case ELogLevel::Error:   { return ColorRed;    }
-                case ELogLevel::Warning: { return ColorPurple; }
-                case ELogLevel::Info:    { return ColorBlue;   }
-                case ELogLevel::Debug:   { return ColorYellow; }
-                case ELogLevel::Verbose: { return ColorGreen;  }
-                default:                  { break;              }
+                case ELogLevel::None:    { return color.white;  }
+                case ELogLevel::Error:   { return color.red;    }
+                case ELogLevel::Warning: { return color.purple; }
+                case ELogLevel::Info:    { return color.blue;   }
+                case ELogLevel::Debug:   { return color.yellow; }
+                case ELogLevel::Verbose: { return color.green;  }
+                default:                 { break;               }
             };
 
-            return ColorWhite;
+            return color.white;
         }
-    public:
 
+        auto getCurrentTime (void)
+        {
+            auto        now  = std::chrono::system_clock::now ();
+            std::time_t time = std::chrono::system_clock::to_time_t (now);
+            return std::put_time (std::localtime (&time), "%Y-%m-%d %H:%M:%S");
+        }
+
+    public:
         template<typename... ARGS>
         void Log (const ELogLevel vLogLevel, std::string vModule, std::string vMsg, ARGS &&... vArgs)
         {
-            std::cout << ColorBlue << vModule
+            std::lock_guard<std::mutex> guard (mutex);
+            const std::string msg = std::move (Format (vMsg.data (), std::forward<ARGS>(vArgs)...));
+
+            std::cout << color.blue << vModule
+                      << " "
+                      << color.purple
+                      << getCurrentTime ()
                       << getFontColor (vLogLevel)
                       << " "
-                      << vMsg
-                      << " ";
-          ((std::cout << std::forward <ARGS> (vArgs)), ...);
-            std::cout << ColorWhite << std::endl;
+                      << msg
+                      << color.white << std::endl;
         }
 };
 
