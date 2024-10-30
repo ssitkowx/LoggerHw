@@ -17,6 +17,7 @@
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+#define SET_LOGGER_INST(INSTANCE) Logger::GetInst ()->SetInst (INSTANCE);
 #define LOG(MODULE,MSG, ...)  Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::None   , MODULE, MSG, ##__VA_ARGS__);
 #define LOGE(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Error  , MODULE, MSG, ##__VA_ARGS__);
 #define LOGW(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Warning, MODULE, MSG, ##__VA_ARGS__);
