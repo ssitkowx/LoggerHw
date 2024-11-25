@@ -6,12 +6,12 @@
 
 #include <mutex>
 #include <chrono>
-#include "Utils.h"
+#include "Utils.hpp"
 #include <string.h>
 #include <stdint.h>
 #include <stddef.h>
-#include "Logger.h"
 #include <iostream>
+#include "Logger.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
