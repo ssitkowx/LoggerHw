@@ -18,12 +18,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #define SET_LOGGER_INST(INSTANCE) Logger::GetInst ()->SetInst (INSTANCE);
-#define LOG(MODULE,MSG, ...)  Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::None   , MODULE, MSG, ##__VA_ARGS__);
-#define LOGE(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Error  , MODULE, MSG, ##__VA_ARGS__);
-#define LOGW(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Warning, MODULE, MSG, ##__VA_ARGS__);
-#define LOGI(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Info   , MODULE, MSG, ##__VA_ARGS__);
-#define LOGD(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Debug  , MODULE, MSG, ##__VA_ARGS__);
-#define LOGV(MODULE,MSG, ...) Logger::GetInst ()->Log <LoggerHw> (Logger::ELogLevel::Verbose, MODULE, MSG, ##__VA_ARGS__);
+#define LOG(MODULE,MSG, ...)  Logger ().Log <LoggerHw> (Logger::ELogLevel::None   , MODULE, MSG, ##__VA_ARGS__);
+#define LOGE(MODULE,MSG, ...) Logger ().Log <LoggerHw> (Logger::ELogLevel::Error  , MODULE, MSG, ##__VA_ARGS__);
+#define LOGW(MODULE,MSG, ...) Logger ().Log <LoggerHw> (Logger::ELogLevel::Warning, MODULE, MSG, ##__VA_ARGS__);
+#define LOGI(MODULE,MSG, ...) Logger ().Log <LoggerHw> (Logger::ELogLevel::Info   , MODULE, MSG, ##__VA_ARGS__);
+#define LOGD(MODULE,MSG, ...) Logger ().Log <LoggerHw> (Logger::ELogLevel::Debug  , MODULE, MSG, ##__VA_ARGS__);
+#define LOGV(MODULE,MSG, ...) Logger ().Log <LoggerHw> (Logger::ELogLevel::Verbose, MODULE, MSG, ##__VA_ARGS__);
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
