@@ -3,7 +3,6 @@
 //////////////////////////////// INCLUDES /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "Utils.hpp"
 #include "LoggerHw.hpp"
 #include "LoggerFixture.hxx"
 
@@ -15,12 +14,12 @@ TEST_F (LoggerFixture, ManuallyCheckLogColorAndCorrectDisplay)
 {
     LOGW        (MODULE, "ManuallyCheckLogColorAndCorrectDisplay");
 
-    LOG         (MODULE, "Test common log."    , "Iteration number: ", ONE);
-    LOGE        (MODULE, "Test log error"      , "Iteration number: ", TWO);
-    LOGI        (MODULE, "Test log information", "Iteration number: ", THREE);
-    LOGD        (MODULE, "Test log debug"      , "Iteration number: ", FOUR);
-    LOGV        (MODULE, "Test log verbose"    , "Iteration number: ", FIVE);
-    LOGW        (MODULE, "Test log warning"    , "Iteration number: ", SIX);
+    LOG         (MODULE, "Test common log."    , "Iteration number: ", 1);
+    LOGE        (MODULE, "Test log error"      , "Iteration number: ", 2);
+    LOGI        (MODULE, "Test log information", "Iteration number: ", 3);
+    LOGD        (MODULE, "Test log debug"      , "Iteration number: ", 4);
+    LOGV        (MODULE, "Test log verbose"    , "Iteration number: ", 5);
+    LOGW        (MODULE, "Test log warning"    , "Iteration number: ", 6);
     EXPECT_TRUE (true);
 }
 

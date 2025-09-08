@@ -1,0 +1,2 @@
+/usr/bin/ar qc libloggerhw.a CMakeFiles/loggerhw.dir/Project/LoggerHw.cpp.o CMakeFiles/loggerhw.dir/Tests/LoggerFixture.cxx.o CMakeFiles/loggerhw.dir/Tests/main.cxx.o
+/usr/bin/ranlib libloggerhw.a

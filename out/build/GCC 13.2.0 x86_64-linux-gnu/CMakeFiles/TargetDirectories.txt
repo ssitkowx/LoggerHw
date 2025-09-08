@@ -1,0 +1,6 @@
+/media/sylwester/b0f222cb-8386-4622-9d17-261cbd145f18/Home/Projekty/Git/LoggerHw/out/build/GCC 13.2.0 x86_64-linux-gnu/CMakeFiles/Project.dir
+/media/sylwester/b0f222cb-8386-4622-9d17-261cbd145f18/Home/Projekty/Git/LoggerHw/out/build/GCC 13.2.0 x86_64-linux-gnu/CMakeFiles/Tests.dir
+/media/sylwester/b0f222cb-8386-4622-9d17-261cbd145f18/Home/Projekty/Git/LoggerHw/out/build/GCC 13.2.0 x86_64-linux-gnu/CMakeFiles/loggerhw.dir
+/media/sylwester/b0f222cb-8386-4622-9d17-261cbd145f18/Home/Projekty/Git/LoggerHw/out/build/GCC 13.2.0 x86_64-linux-gnu/CMakeFiles/test.dir
+/media/sylwester/b0f222cb-8386-4622-9d17-261cbd145f18/Home/Projekty/Git/LoggerHw/out/build/GCC 13.2.0 x86_64-linux-gnu/CMakeFiles/edit_cache.dir
+/media/sylwester/b0f222cb-8386-4622-9d17-261cbd145f18/Home/Projekty/Git/LoggerHw/out/build/GCC 13.2.0 x86_64-linux-gnu/CMakeFiles/rebuild_cache.dir
